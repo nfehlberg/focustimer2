@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.light-theme {
+	--base-color: #323238;
+  --bg-activeButton: #02799D;
+  --bg-body:#FFFFFF;
+  --bg-card: #e1e1e6;
+  --number-color: #323238;
+  --svg-path-color: #323238;
+  --svg-path-active-color: #ffffff;
+  --cs-primary: #b3b3b7;
+	--cs-secondary: #ffffff;
+	--cs-primary-active: #028ab3;
+	--cs-secondary-active: #026685;
+}
+
+
+.dark-theme {
+  --base-color: #ffffff;
+  --bg-activeButton:#0a3442;
+  --bg-body: #121214;
+	--bg-card: #29292e;
+  --number-color: #ffffff;
+	--svg-path-color: #c4c4cc;
+  --svg-path-active-color: #ffffff;
+	--cs-primary: #232327;
+	--cs-secondary: #2f2f35;
+	--cs-primary-ativo: #0c3c4c;
+	--cs-secondary-ativo: #092c38;
+}
+
+.hide {
+  display: none;
+}
+
+
+body {
+  background-color: var(--bg-body);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.themes button {
+    position: absolute;
+    top: 2rem;
+    right: 5rem;
+    cursor: pointer;
+      }
+
+
+main {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timer .time {
+	font-family: 'Roboto', sans-serif;
+	line-height: 16rem;
+	font-size: 12rem;
+	color: var(--number-color);
+	cursor: default;
+}
+
+.timer .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.timer .buttons svg path {
+	fill: var(--svg-path-color);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.cards .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards .card input {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  width: 10rem;
+  cursor: pointer;
+}
+
+
+.cards .card button {
+	width: 13rem;
+	height: 14rem;
+	border-radius: 2.4rem;
+	cursor: pointer;
+	background: var(--bg-card);
+	box-shadow: 7px 7px 14px var(--cs-primary), -7px -7px 14px var(--cs-secondary);
+}
+
+.dark-theme .cards .card button {
+	background: #121214;
+	box-shadow: 6px 6px 12px #0c0c0d, -6px -6px 12px #18181b;
+}
+.cards .card button.active {
+	background: var(--bg-activeButton);
+	box-shadow: inset 10px 10px 20px var(--cs-secondary-active),
+		inset -10px -10px 20px var(--cs-primary-active);
+}
+
+.cards .card path {
+	fill: var(--svg-path-color);
+}
+
+.cards .card button.active path {
+	fill: var(--svg-path-active-color);
+}
+
+.cards .card input.active[type='range'] {
+	background: var(--svg-path-active-color);
+	background-image: var(--svg-path-active-color);
+}
+
+.cards .card input.active[type='range']::-webkit-slider-thumb {
+	background: var(--svg-path-active-color);
+}
+
+input[type='range'] {
+  appearance: none;
+	width: 9rem;
+	height: 6px;
+	background: var(--svg-path-color);
+	border-radius: 9999px;
+	background-image: var(--svg-path-color);
+	position: absolute;
+	top: 12rem;
+}
+
+input[type='range']::-webkit-slider-thumb {
+	appearance: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: var(--svg-path-color);
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+	appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+}
+
+
+
+@media (min-width: 850px) {
+	main {
+		flex-direction: row;
+		gap: 10vw;
+	}
+	.themes button {
+		position: absolute;
+		top: 6.4rem;
+		right: 6.4rem;
+	}
+}
